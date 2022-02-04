@@ -2,7 +2,7 @@ import React from "react";
 import Item from "./Item.jsx";
 const Voicemail = ({ call }) => {
   return (
-    <div id="call-list">
+    <div className="content-container">
       <div className="page-title">
         <h1 style={{ fontSize: 20, color: "rgb(42, 196, 32)" }}>
           <strong>Voicemail</strong>
@@ -13,11 +13,13 @@ const Voicemail = ({ call }) => {
           </h2>
         )}
       </div>
-      {call.map((each, index) => {
-        if (each.call_type === "voicemail") {
-          return <Item call={each} key={index} />;
-        }
-      })}
+      <div id="call-list">
+        {call.map((each, index) => {
+          if (each.call_type === "voicemail") {
+            return <Item call={each} key={index} />;
+          }
+        })}
+      </div>
     </div>
   );
 };

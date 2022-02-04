@@ -31,6 +31,7 @@ const Item = ({ call }) => {
         console.log(error);
       });
   };
+
   return (
     <div>
       <div className="individual-call">

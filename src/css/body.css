@@ -60,7 +60,7 @@ div.individual-call:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
-button#reset-archive {
+button.archive-button {
   transition: box-shadow 0.5s;
   padding: 10px;
   margin-top: 10px;
@@ -70,7 +70,7 @@ button#reset-archive {
   background: #fff;
 }
 
-button#reset-archive:hover {
+button.archive-button:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
@@ -79,7 +79,6 @@ div#call-details {
   flex-direction: row;
   align-items: center;
   width: 100%;
-  min-height: 45px;
 
   justify-content: space-around;
 }
@@ -125,15 +124,15 @@ div#caller-information {
 }
 
 div#call-list {
-  height: 430px;
+  height: 480px;
   overflow: scroll;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   flex-direction: column;
   display: flex;
 }
 
-div.reset-archive {
+div.calls-message {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -168,4 +167,8 @@ div.contact-card {
 
 div.contact-card:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+}
+
+div.content-container {
+  height: 100%;
 }

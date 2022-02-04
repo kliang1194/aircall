@@ -17,17 +17,21 @@ const Archive = ({ call }) => {
 
   return (
     <div id="call-list">
-      <div className="reset-archive">
-        <button id="reset-archive" onClick={handleClick}>
-          Reset Archive
-        </button>
+      <div class="page-title">
+        <h1 style={{ fontSize: 20, color: "rgb(42, 196, 32)" }}>
+          <strong>Archived Calls</strong>
+        </h1>
       </div>
-
       {call.map((each, index) => {
         if (each.is_archived) {
           return <Item call={each} key={index} />;
         }
       })}
+      <div className="reset-archive">
+        <button id="reset-archive" style={{ margin: 10 }} onClick={handleClick}>
+          Reset Archive
+        </button>
+      </div>
     </div>
   );
 };

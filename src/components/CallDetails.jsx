@@ -1,44 +1,49 @@
 import React from "react";
 import axios from "axios";
-const CallDetails = ({ id }) => {
+const CallDetails = (props) => {
   const [callDetails, setCallDetails] = React.useState({});
 
-  React.useEffect(() => {
-    axios
-      .get(`https://aircall-job.herokuapp.com/activities/${id}`)
+  const { id, call } = props;
 
-      .then((res) => {
-        console.log("res.data", res.data);
-        setCallDetails(res.data);
-      })
+  // React.useEffect(() => {
+  //   axios
+  //     .get(`https://aircall-job.herokuapp.com/activities/${id}`)
 
-      .catch((err) => console.log("err", err));
-  }, [id]);
+  //     .then((res) => {
+  //       console.log("res.data", res.data);
+  //       setCallDetails(res.data);
+  //     })
+
+  //     .catch((err) => console.log("err", err));
+  // }, [id]);
 
   return (
     <div id="details">
       <span>
-        <strong>Time of Call: </strong> {callDetails.created_at}
+        <strong>Time of Call: </strong>
+        {`${call.created_at.slice(0, 10)}, ${call.created_at
+          .split("T")[1]
+          .slice(0, 5)}`}
       </span>
       <span>
         <strong>From: </strong>
-        {callDetails.from ? callDetails.from : "Null"}
+        {call.from ? call.from : "Null"}
       </span>
       <span>
         <strong>To: </strong>
-        {callDetails.to ? callDetails.to : "Null"}
+        {call.to ? call.to : "Null"}
       </span>
       <span>
         <strong>Call placed via: </strong>
-        {callDetails.via}
+        {call.via}
       </span>
       <span>
         <strong>Duration: </strong>
-        {callDetails.duration} seconds
+        {call.duration} seconds
       </span>
       <span>
         <strong>Call Type: </strong>
-        {callDetails.call_type}
+        {`${call.call_type.charAt(0).toUpperCase()}${call.call_type.slice(1)}`}
       </span>
     </div>
   );

@@ -38,10 +38,10 @@ const Item = ({ call }) => {
           <div id="call-icon">
             <p>
               {call.direction === "inbound" && call.call_type === "answered" ? (
-                <BsFillTelephoneInboundFill color="black" size={20} />
+                <BsFillTelephoneInboundFill color="grey" size={20} />
               ) : null}
               {call.direction === "outbound" ? (
-                <BsFillTelephoneOutboundFill color="black" size={20} />
+                <BsFillTelephoneOutboundFill color="grey" size={20} />
               ) : null}
               {call.call_type === "voicemail" ? (
                 <FiVoicemail color="red" size={20} />
@@ -87,7 +87,7 @@ const Item = ({ call }) => {
               {isOpen ? (
                 <HiInformationCircle
                   size={20}
-                  color="black"
+                  color="grey"
                   onClick={() => {
                     handleClickDetail(call.id);
                   }}
@@ -95,7 +95,7 @@ const Item = ({ call }) => {
               ) : (
                 <HiOutlineInformationCircle
                   size={20}
-                  color="black"
+                  color="grey"
                   onClick={() => {
                     handleClickDetail(call.id);
                   }}
@@ -104,7 +104,7 @@ const Item = ({ call }) => {
 
               {call.is_archived ? (
                 <BsArchiveFill
-                  color="black"
+                  color="grey"
                   size={20}
                   onClick={() => {
                     handleClickArchieve(call.id, call.is_archived);
@@ -112,7 +112,7 @@ const Item = ({ call }) => {
                 />
               ) : (
                 <BsArchive
-                  color="black"
+                  color="grey"
                   size={20}
                   onClick={() => {
                     handleClickArchieve(call.id, call.is_archived);
@@ -122,7 +122,9 @@ const Item = ({ call }) => {
             </div>
           </div>
         </div>
-        {isOpen && isId === call.id ? <CallDetails id={call.id} /> : null}
+        {isOpen && isId === call.id ? (
+          <CallDetails call={call} id={call.id} />
+        ) : null}
       </div>
     </div>
   );

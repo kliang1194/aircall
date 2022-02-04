@@ -14,32 +14,32 @@ const Nav = ({ screen, setScreen }) => {
           value={{ color: "grey", size: 30, style: { cursor: "pointer" } }}
         >
           <BsFillTelephoneFill
-            color={screen === "Home" ? "blue" : "black"}
+            color={screen === "Home" ? "black" : "grey"}
             className="nav-icon"
             onClick={() => {
               setScreen("Home");
             }}
           />
           <BsFillPersonFill
-            color={screen === "Address Book" ? "blue" : "black"}
+            color={screen === "Address Book" ? "black" : "grey"}
             className="nav-icon"
             onClick={() => console.log("Address Book")}
           />
           <BiDialpadAlt
-            color={screen === "DialPad" ? "blue" : "black"}
+            color={screen === "DialPad" ? "black" : "grey"}
             className="nav-icon"
             onClick={() => setScreen("DialPad")}
           />
 
           <BsArchiveFill
-            color={screen === "Archive" ? "blue" : "black"}
+            color={screen === "Archive" ? "black" : "grey"}
             className="nav-icon"
             onClick={() => {
               setScreen("Archive");
             }}
           />
           <FiVoicemail
-            color={screen === "Voicemail" ? "blue" : "black"}
+            color={screen === "Voicemail" ? "black" : "grey"}
             className="nav-icon"
             onClick={() => {
               setScreen("Voicemail");

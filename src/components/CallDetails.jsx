@@ -8,16 +8,15 @@ const CallDetails = ({ id }) => {
       .get(`https://aircall-job.herokuapp.com/activities/${id}`)
 
       .then((res) => {
-        console.log(res.data);
+        console.log("res.data", res.data);
         setCallDetails(res.data);
       })
+
       .catch((err) => console.log("err", err));
   }, [id]);
+
   return (
     <div id="details">
-      {/* <h1>
-        <strong>Call Details</strong>
-      </h1> */}
       <span>
         <strong>Time of Call: </strong> {callDetails.created_at}
       </span>
@@ -35,7 +34,7 @@ const CallDetails = ({ id }) => {
       </span>
       <span>
         <strong>Duration: </strong>
-        {callDetails.duration}
+        {callDetails.duration} seconds
       </span>
       <span>
         <strong>Call Type: </strong>

@@ -14,9 +14,15 @@ const Archive = ({ call }) => {
         console.log(error);
       });
   };
+
   return (
     <div id="call-list">
-      <button onClick={handleClick}>Reset Archive</button>
+      <div className="reset-archive">
+        <button id="reset-archive" onClick={handleClick}>
+          Reset Archive
+        </button>
+      </div>
+
       {call.map((each, index) => {
         if (each.is_archived) {
           return <Item call={each} key={index} />;

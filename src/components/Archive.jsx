@@ -27,11 +27,22 @@ const Archive = ({ call }) => {
           return <Item call={each} key={index} />;
         }
       })}
-      <div className="reset-archive">
-        <button id="reset-archive" style={{ margin: 10 }} onClick={handleClick}>
-          Reset Archive
-        </button>
-      </div>
+
+      {call.find((each) => each.is_archived) ? (
+        <div className="reset-archive">
+          <button
+            id="reset-archive"
+            style={{ margin: 10 }}
+            onClick={handleClick}
+          >
+            Reset Archive
+          </button>
+        </div>
+      ) : (
+        <div className="reset-archive">
+          <span>You have no archived calls!</span>
+        </div>
+      )}
     </div>
   );
 };

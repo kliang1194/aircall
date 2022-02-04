@@ -88,6 +88,7 @@ const Item = ({ call }) => {
                 <HiInformationCircle
                   size={20}
                   color="grey"
+                  className="action-icon"
                   onClick={() => {
                     handleClickDetail(call.id);
                   }}
@@ -96,6 +97,7 @@ const Item = ({ call }) => {
                 <HiOutlineInformationCircle
                   size={20}
                   color="grey"
+                  className="action-icon"
                   onClick={() => {
                     handleClickDetail(call.id);
                   }}
@@ -105,6 +107,7 @@ const Item = ({ call }) => {
               {call.is_archived ? (
                 <BsArchiveFill
                   color="grey"
+                  className="action-icon"
                   size={20}
                   onClick={() => {
                     handleClickArchieve(call.id, call.is_archived);
@@ -113,6 +116,7 @@ const Item = ({ call }) => {
               ) : (
                 <BsArchive
                   color="grey"
+                  className="action-icon"
                   size={20}
                   onClick={() => {
                     handleClickArchieve(call.id, call.is_archived);

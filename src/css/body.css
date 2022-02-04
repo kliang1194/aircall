@@ -84,7 +84,7 @@ div#call-details {
 }
 
 div#call-right {
-  border-left: dashed 1px;
+  /* border-left: dashed 1px; */
   display: flex;
   width: 70px;
   height: 80%;

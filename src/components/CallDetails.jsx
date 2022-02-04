@@ -21,7 +21,7 @@ const CallDetails = (props) => {
     <div id="details">
       <span>
         <strong>Time of Call: </strong>
-        {`${call.created_at.slice(0, 10)}, ${call.created_at
+        {`${call.created_at.slice(0, 10)} ${call.created_at
           .split("T")[1]
           .slice(0, 5)}`}
       </span>

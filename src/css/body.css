@@ -20,7 +20,7 @@ body {
   line-height: 1;
 }
 
-div#individual-call {
+div.individual-call {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,7 +38,7 @@ div#details {
   align-items: flex-start;
   transition: box-shadow 0.5s;
   width: 100%;
-  margin-left: 20px;
+  margin-left: 32px;
   /* padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -50,12 +50,13 @@ div#call-details span {
   margin-top: 5px;
   margin-bottom: 5px;
 }
+
 div#details span {
   margin-top: 5px;
   margin-bottom: 5px;
 }
 
-div#individual-call:hover {
+div.individual-call:hover {
   box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }
 
@@ -145,4 +146,26 @@ div.page-title {
   margin-bottom: 10px;
   flex-direction: column;
   align-items: center;
+}
+
+h2.message {
+  font-size: 15px;
+}
+
+div.contact-card {
+  display: flex;
+  flex-direction: row;
+  transition: box-shadow 0.5s;
+  padding: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 1px solid #ccc;
+  background: transparent;
+  justify-content: space-between;
+  height: 30px;
+  align-items: center;
+}
+
+div.contact-card:hover {
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }

@@ -17,7 +17,7 @@ const Archive = ({ call }) => {
 
   return (
     <div id="call-list">
-      <div class="page-title">
+      <div className="page-title">
         <h1 style={{ fontSize: 20, color: "rgb(42, 196, 32)" }}>
           <strong>Archived Calls</strong>
         </h1>
@@ -32,7 +32,7 @@ const Archive = ({ call }) => {
         <div className="reset-archive">
           <button
             id="reset-archive"
-            style={{ margin: 10 }}
+            style={{ margin: 10, color: "rgb(42, 196, 32)" }}
             onClick={handleClick}
           >
             Reset Archive
@@ -40,7 +40,7 @@ const Archive = ({ call }) => {
         </div>
       ) : (
         <div className="reset-archive">
-          <span>You have no archived calls!</span>
+          <h2 className="message">You have no archived calls!</h2>
         </div>
       )}
     </div>

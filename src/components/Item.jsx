@@ -7,22 +7,22 @@ import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 import { BsArchive } from "react-icons/bs";
 import { FiVoicemail } from "react-icons/fi";
 import { HiOutlineInformationCircle } from "react-icons/hi";
-
 import axios from "axios";
 import { useEffect, useState } from "react";
+
 const Item = ({ call }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isId, setIsId] = useState("");
+
   const handleClickDetail = (id) => {
     setIsOpen(!isOpen);
     setIsId(id);
   };
 
-  const handleClickArchieve = (id, is_archieved) => {
-    console.log(id, is_archieved);
+  const handleClickArchive = (id, is_archived) => {
     axios
       .post(`https://aircall-job.herokuapp.com/activities/${id}`, {
-        is_archived: !is_archieved,
+        is_archived: !is_archived,
       })
       .then((response) => {
         console.log(response);
@@ -33,7 +33,7 @@ const Item = ({ call }) => {
   };
   return (
     <div>
-      <div id="individual-call">
+      <div className="individual-call">
         <div id="call-details">
           <div id="call-icon">
             <p>
@@ -49,6 +49,11 @@ const Item = ({ call }) => {
             </p>
           </div>
           <div id="caller-information">
+            <span>
+              {`${call.created_at.slice(0, 10)} ${call.created_at
+                .split("T")[1]
+                .slice(0, 5)}`}
+            </span>
             {(() => {
               if (
                 call.direction === "inbound" &&
@@ -82,12 +87,11 @@ const Item = ({ call }) => {
             </span>
           </div>
           <div id="call-right">
-            <span>{call.created_at.split("T")[1].slice(0, 5)}</span>
             <div className="call-actions">
               {isOpen ? (
                 <HiInformationCircle
                   size={20}
-                  color="grey"
+                  color="rgb(42,196,32)"
                   className="action-icon"
                   onClick={() => {
                     handleClickDetail(call.id);
@@ -96,7 +100,7 @@ const Item = ({ call }) => {
               ) : (
                 <HiOutlineInformationCircle
                   size={20}
-                  color="grey"
+                  color="rgb(42,196,32)"
                   className="action-icon"
                   onClick={() => {
                     handleClickDetail(call.id);
@@ -106,20 +110,20 @@ const Item = ({ call }) => {
 
               {call.is_archived ? (
                 <BsArchiveFill
-                  color="grey"
+                  color="rgb(42,196,32)"
                   className="action-icon"
                   size={20}
                   onClick={() => {
-                    handleClickArchieve(call.id, call.is_archived);
+                    handleClickArchive(call.id, call.is_archived);
                   }}
                 />
               ) : (
                 <BsArchive
-                  color="grey"
+                  color="rgb(42,196,32)"
                   className="action-icon"
                   size={20}
                   onClick={() => {
-                    handleClickArchieve(call.id, call.is_archived);
+                    handleClickArchive(call.id, call.is_archived);
                   }}
                 />
               )}

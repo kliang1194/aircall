@@ -6,10 +6,15 @@ import axios from "axios";
 const CallList = ({ call }) => {
   return (
     <div id="call-list">
-      <div class="page-title">
+      <div className="page-title">
         <h1 style={{ fontSize: 20, color: "rgb(42, 196, 32)" }}>
           <strong>Activity Feed</strong>
         </h1>
+        {call.find((each) => !each.is_archived) ? null : (
+          <h2 className="message" style={{ margin: 10 }}>
+            You have no calls!
+          </h2>
+        )}
       </div>
       {call.map((each, index) => {
         if (!each.is_archived) {

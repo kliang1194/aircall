@@ -21,9 +21,11 @@ const Nav = ({ screen, setScreen }) => {
             }}
           />
           <BsFillPersonFill
-            color={screen === "Address Book" ? "rgb(42,196,32)k" : "grey"}
+            color={screen === "Contacts" ? "rgb(42,196,32)" : "grey"}
             className="nav-icon"
-            onClick={() => console.log("Address Book")}
+            onClick={() => {
+              setScreen("Contacts");
+            }}
           />
           <BiDialpadAlt
             color={screen === "DialPad" ? "rgb(42,196,32)" : "grey"}

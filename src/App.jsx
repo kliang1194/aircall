@@ -5,7 +5,7 @@ import axios from "axios";
 
 import Header from "./Header.jsx";
 import CallList from "./components/CallList.jsx";
-import CallDetails from "./components/CallDetails.jsx";
+import Contacts from "./components/Contacts.jsx";
 import Navigation from "./components/Nav.jsx";
 import Archive from "./components/Archive.jsx";
 import Voicemail from "./components/Voicemail.jsx";
@@ -33,10 +33,10 @@ const App = () => {
     <div className="container">
       <Header />
       {screen === "Home" && <CallList call={callData} />}
+      {screen === "Contacts" && <Contacts />}
       {screen === "Archive" && <Archive call={callData} />}
       {screen === "Voicemail" && <Voicemail call={callData} />}
       {screen === "DialPad" && <DialPad />}
-
       <Navigation setScreen={setScreen} screen={screen} />
     </div>
   );

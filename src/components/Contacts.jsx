@@ -26,10 +26,13 @@ const Contacts = () => {
         <h1 style={{ fontSize: 20, color: "rgb(42, 196, 32)" }}>
           <strong>Contacts</strong>
         </h1>
+
         {Object.values(contacts).length ? null : (
-          <h2 className="message" style={{ margin: 10 }}>
-            You have no contacts!
-          </h2>
+          <div className="calls-message">
+            <h2 className="message" style={{ margin: 10 }}>
+              No Contacts
+            </h2>
+          </div>
         )}
       </div>
       <div id="call-list">

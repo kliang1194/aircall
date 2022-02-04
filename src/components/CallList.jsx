@@ -2,6 +2,7 @@ import React from "react";
 import Item from "./Item.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BsArchive } from "react-icons/bs";
 
 const CallList = ({ call }) => {
   const archiveAll = () => {
@@ -40,12 +41,13 @@ const CallList = ({ call }) => {
               style={{ margin: 10, color: "rgb(42, 196, 32)" }}
               onClick={archiveAll}
             >
+              <BsArchive style={{ paddingRight: 5, marginBottom: -1.5 }} />
               Archive All
             </button>
           </div>
         ) : (
           <div className="calls-message">
-            <h2 className="message">You have no calls!</h2>
+            <h2 className="message">No Activity</h2>
           </div>
         )}
       </div>

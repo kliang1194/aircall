@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import CallDetails from "./CallDetails.jsx";
 import { BsArchiveFill } from "react-icons/bs";
 import { HiInformationCircle } from "react-icons/hi";
@@ -41,8 +42,15 @@ const Item = ({ call }) => {
               {call.direction === "inbound" && call.call_type === "answered" ? (
                 <BsFillTelephoneInboundFill color="grey" size={20} />
               ) : null}
-              {call.direction === "outbound" ? (
+              {call.direction === "inbound" && call.call_type === "missed" ? (
+                <BsFillTelephoneInboundFill color="red" size={20} />
+              ) : null}
+              {call.direction === "outbound" &&
+              call.call_type === "answered" ? (
                 <BsFillTelephoneOutboundFill color="grey" size={20} />
+              ) : null}
+              {call.direction === "outbound" && call.call_type === "missed" ? (
+                <BsFillTelephoneOutboundFill color="red" size={20} />
               ) : null}
               {call.call_type === "voicemail" ? (
                 <FiVoicemail color="red" size={20} />
@@ -50,11 +58,7 @@ const Item = ({ call }) => {
             </p>
           </div>
           <div id="caller-information">
-            <span>
-              {`${call.created_at.slice(0, 10)} ${call.created_at
-                .split("T")[1]
-                .slice(0, 5)}`}
-            </span>
+            <span>{moment(call.created_at).format("MMMM DD, YYYY h:mmA")}</span>
             {(() => {
               if (
                 call.direction === "inbound" &&
@@ -62,7 +66,7 @@ const Item = ({ call }) => {
               ) {
                 return (
                   <span style={{ color: "black" }}>
-                    <strong>{call.from ? call.from : "Null"}</strong>
+                    <strong>{call.from ? call.from : "Unknown"}</strong>
                   </span>
                 );
               } else if (
@@ -71,13 +75,31 @@ const Item = ({ call }) => {
               ) {
                 return (
                   <span style={{ color: "red" }}>
-                    <strong>{call.from ? call.from : "Null"}</strong>
+                    <strong>{call.from ? call.from : "Unknown"}</strong>
+                  </span>
+                );
+              } else if (
+                call.direction === "inbound" &&
+                call.call_type === "missed"
+              ) {
+                return (
+                  <span style={{ color: "red" }}>
+                    <strong>{call.from ? call.from : "Unknown"}</strong>
+                  </span>
+                );
+              } else if (
+                call.direction === "outbound" &&
+                call.call_type === "missed"
+              ) {
+                return (
+                  <span style={{ color: "red" }}>
+                    <strong>{call.to ? call.to : "Unknown"}</strong>
                   </span>
                 );
               } else {
                 return (
                   <span color="black">
-                    <strong>{call.to ? call.from : "Null"}</strong>
+                    <strong>{call.to ? call.to : "Unknown"}</strong>
                   </span>
                 );
               }

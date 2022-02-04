@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import moment from "moment";
 const CallDetails = (props) => {
   const [callDetails, setCallDetails] = React.useState({});
 
@@ -21,17 +22,15 @@ const CallDetails = (props) => {
     <div id="details">
       <span>
         <strong>Time of Call: </strong>
-        {`${call.created_at.slice(0, 10)} ${call.created_at
-          .split("T")[1]
-          .slice(0, 5)}`}
+        {moment(call.created_at).format("MMMM DD, YYYY h:mmA")}
       </span>
       <span>
         <strong>From: </strong>
-        {call.from ? call.from : "Null"}
+        {call.from ? call.from : "Unknown"}
       </span>
       <span>
         <strong>To: </strong>
-        {call.to ? call.to : "Null"}
+        {call.to ? call.to : "Unknown"}
       </span>
       <span>
         <strong>Call placed via: </strong>

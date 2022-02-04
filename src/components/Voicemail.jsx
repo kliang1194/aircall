@@ -9,7 +9,7 @@ const Voicemail = ({ call }) => {
         </h1>
         {call.find((each) => each.call_type === "voicemail") ? null : (
           <h2 className="message" style={{ margin: 10 }}>
-            You have no voicemails!
+            No Voicemail
           </h2>
         )}
       </div>

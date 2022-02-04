@@ -2,6 +2,7 @@ import React from "react";
 import Item from "../components/Item.jsx";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { BsArchiveFill } from "react-icons/bs";
 
 const Archive = ({ call }) => {
   const handleClick = () => {
@@ -35,12 +36,13 @@ const Archive = ({ call }) => {
               style={{ margin: 10, color: "rgb(42, 196, 32)" }}
               onClick={handleClick}
             >
-              Reset Archive
+              <BsArchiveFill style={{ paddingRight: 5, marginBottom: -1.5 }} />
+              Remove All From Archive
             </button>
           </div>
         ) : (
           <div className="calls-message">
-            <h2 className="message">You have no archived calls!</h2>
+            <h2 className="message">No Archived Calls</h2>
           </div>
         )}
       </div>

@@ -165,5 +165,57 @@ div.contact-card:hover {
 /* Styling for dial pad */
 
 .dial-pad-icons:hover {
-  filter: drop-shadow(0 0 11px rgba(33, 33, 33, 0.2));
+  filter: drop-shadow(0 0 5px rgba(33, 33, 33, 0.2));
+}
+
+div.dial-pad {
+  display: flex;
+  flex-wrap: wrap;
+  flex: 50%;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+}
+
+button.dial-pad {
+  width: 33.3333%;
+  height: 33.3333%;
+  padding: 5px;
+  background-color: transparent;
+  border: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+div.dial-pad-container {
+  margin-top: 15px;
+}
+
+div.dial-icons {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+}
+
+span.numbers-dialed {
+  display: flex;
+  height: 40px;
+  padding-top: 10px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.dial-pad-icons {
+  color: grey;
+}
+
+.dial-pad-icons:active {
+  color: rgb(42, 196, 32);
+}
+
+button.dial-pad:active {
+  background-color: rgb(211, 235, 210);
+  box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
 }

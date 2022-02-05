@@ -1,27 +1,53 @@
 import React, { useState } from "react";
 import { RiDeleteBack2Fill } from "react-icons/ri";
+import { MdCall } from "react-icons/md";
 
 const DialPad = () => {
   const [number, setNumber] = useState("");
+
   const renderKeyPad = () => {
-    const array = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+    const array = [
+      "1",
+      "2.A B C",
+      "3.D E F",
+      "4.G H I",
+      "5.J K L",
+      "6.M N O",
+      "7.P Q R S",
+      "8.T U V",
+      "9.W X Y Z",
+      "*",
+      "0.+",
+      "#",
+    ];
+
     return (
-      <div>
+      <div className="dial-pad">
         {array.map((each, index) => {
+          const digit = each.split(".")[0];
+          const letters = each.split(".")[1];
           return (
             <button
+              className="dial-pad"
               onClick={() => {
-                setNumber(number + each);
+                setNumber(number + digit);
+                setColor("dial-numbers", "black");
               }}
               key={index}
             >
-              {each}
+              <h1 style={{ fontSize: 20 }} className="dial-pad">
+                <strong>{digit}</strong>
+              </h1>
+              <h5 className="dial-pad" style={{ color: "grey" }}>
+                {letters}
+              </h5>
             </button>
           );
         })}
       </div>
     );
   };
+
   return (
     <div className="content-container">
       <div className="page-title">
@@ -30,18 +56,33 @@ const DialPad = () => {
         </h1>
       </div>
       <div id="call-list">
-        <div>
-          <h1>{number}</h1>
+        <span
+          class="numbers-dialed"
+          style={{ fontSize: 40, color: "rgb(42, 196, 32)" }}
+        >
+          {number}
+        </span>
+
+        <div className="dial-pad-container">{renderKeyPad()}</div>
+        <div className="dial-icons">
+          <MdCall
+            className="dial-pad-icons"
+            size={50}
+            style={{ marginRight: 62 }}
+            onClick={() => {
+              setNumber(number.substring(0, number.length - 1));
+            }}
+          />
+
           <RiDeleteBack2Fill
             className="dial-pad-icons"
-            size={40}
-            color="grey"
+            size={50}
+            style={{ marginRight: 53 }}
             onClick={() => {
               setNumber(number.substring(0, number.length - 1));
             }}
           />
         </div>
-        <div>{renderKeyPad()}</div>
       </div>
     </div>
   );

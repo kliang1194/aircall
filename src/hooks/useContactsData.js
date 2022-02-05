@@ -6,7 +6,7 @@ export function useContactsData() {
 
   const getContactsData = () => {
     axios
-      .get("https:/aircall-job.herokuapp.com/")
+      .get("https://aircall-job.herokuapp.com/")
       .then((res) => {
         setContactsData(res.data.contact);
       })

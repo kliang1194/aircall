@@ -6,7 +6,7 @@ export function getCallsApi() {
 
   const getCallData = () => {
     axios
-      .get("https:/aircall-job.herokuapp.com/activities")
+      .get("https://aircall-job.herokuapp.com/activities")
       .then((res) => {
         setCallData(res.data);
       })

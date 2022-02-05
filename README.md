@@ -4,4 +4,4 @@ Aircall allows you to view an Activity Feed of simple calls, Activity Details of
 
 ### Features
 
-![aircall](https://github.com/kliang1194/aircall/blob/main/docs/AirCall.gif?raw=true)
+![Using Aircall](https://github.com/kliang1194/aircall/blob/master/docs/AirCall.gif?raw=true)

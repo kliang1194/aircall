@@ -10,24 +10,11 @@ import Navigation from "./components/Nav.jsx";
 import Archive from "./components/Archive.jsx";
 import Voicemail from "./components/Voicemail.jsx";
 import DialPad from "./components/DialPad.jsx";
+import { getCallsApi } from "./hooks/getCallsApi.js";
+
 const App = () => {
+  const { callData } = getCallsApi();
   const [screen, setScreen] = useState("Home");
-  const [callData, setCallData] = useState([]);
-
-  const getCallData = () => {
-    axios
-      .get("https:/aircall-job.herokuapp.com/activities")
-      .then((res) => {
-        setCallData(res.data);
-      })
-      .catch((err) => {
-        console.log("error", error);
-      });
-  };
-
-  useEffect(() => {
-    getCallData();
-  }, [callData]);
 
   return (
     <div className="container">

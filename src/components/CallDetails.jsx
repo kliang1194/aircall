@@ -1,22 +1,7 @@
 import React from "react";
-import axios from "axios";
 import moment from "moment";
 const CallDetails = (props) => {
-  const [callDetails, setCallDetails] = React.useState({});
-
-  const { id, call } = props;
-
-  // React.useEffect(() => {
-  //   axios
-  //     .get(`https://aircall-job.herokuapp.com/activities/${id}`)
-
-  //     .then((res) => {
-  //       console.log("res.data", res.data);
-  //       setCallDetails(res.data);
-  //     })
-
-  //     .catch((err) => console.log("err", err));
-  // }, [id]);
+  const { call } = props;
 
   return (
     <div id="details">

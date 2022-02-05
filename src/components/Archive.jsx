@@ -1,19 +1,10 @@
 import React from "react";
 import Item from "../components/Item.jsx";
-import { useState, useEffect } from "react";
-import axios from "axios";
 import { BsArchiveFill } from "react-icons/bs";
-
+import reset from "../helpers/resetApi.js";
 const Archive = ({ call }) => {
   const handleClick = () => {
-    axios
-      .get("https://aircall-job.herokuapp.com/reset")
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    reset();
   };
 
   return (
@@ -22,13 +13,6 @@ const Archive = ({ call }) => {
         <h1 style={{ fontSize: 20, color: "rgb(42, 196, 32)" }}>
           <strong>Archived Calls</strong>
         </h1>
-      </div>
-      <div id="call-list">
-        {call.map((each, index) => {
-          if (each.is_archived) {
-            return <Item call={each} key={index} />;
-          }
-        })}
         {call.find((each) => each.is_archived) ? (
           <div className="calls-message">
             <button
@@ -42,9 +26,18 @@ const Archive = ({ call }) => {
           </div>
         ) : (
           <div className="calls-message">
-            <h2 className="message">No Archived Calls</h2>
+            <h2 className="message" style={{ marginTop: 20 }}>
+              No Archived Calls
+            </h2>
           </div>
         )}
+      </div>
+      <div id="call-list">
+        {call.map((each, index) => {
+          if (each.is_archived) {
+            return <Item call={each} key={index} />;
+          }
+        })}
       </div>
     </div>
   );

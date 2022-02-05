@@ -8,8 +8,8 @@ import { BsFillTelephoneOutboundFill } from "react-icons/bs";
 import { BsArchive } from "react-icons/bs";
 import { FiVoicemail } from "react-icons/fi";
 import { HiOutlineInformationCircle } from "react-icons/hi";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import archiveApi from "../helpers/archiveApi.js";
 
 const Item = ({ call }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +21,7 @@ const Item = ({ call }) => {
   };
 
   const handleClickArchive = (id, is_archived) => {
-    axios
-      .post(`https://aircall-job.herokuapp.com/activities/${id}`, {
-        is_archived: !is_archived,
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    archiveApi(id, !is_archived);
   };
 
   return (
@@ -114,7 +105,7 @@ const Item = ({ call }) => {
               {isOpen ? (
                 <HiInformationCircle
                   size={20}
-                  color="rgb(42,196,32)"
+                  color="grey"
                   className="action-icon"
                   onClick={() => {
                     handleClickDetail(call.id);
@@ -123,7 +114,7 @@ const Item = ({ call }) => {
               ) : (
                 <HiOutlineInformationCircle
                   size={20}
-                  color="rgb(42,196,32)"
+                  color="grey"
                   className="action-icon"
                   onClick={() => {
                     handleClickDetail(call.id);
@@ -133,7 +124,7 @@ const Item = ({ call }) => {
 
               {call.is_archived ? (
                 <BsArchiveFill
-                  color="rgb(42,196,32)"
+                  color="grey"
                   className="action-icon"
                   size={20}
                   onClick={() => {
@@ -142,7 +133,7 @@ const Item = ({ call }) => {
                 />
               ) : (
                 <BsArchive
-                  color="rgb(42,196,32)"
+                  color="grey"
                   className="action-icon"
                   size={20}
                   onClick={() => {

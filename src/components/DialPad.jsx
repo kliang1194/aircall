@@ -31,7 +31,6 @@ const DialPad = () => {
               className="dial-pad"
               onClick={() => {
                 setNumber(number + digit);
-                setColor("dial-numbers", "black");
               }}
               key={index}
             >
@@ -55,9 +54,9 @@ const DialPad = () => {
           <strong>Dial Pad</strong>
         </h1>
       </div>
-      <div id="call-list">
+      <div id="dial-list">
         <span
-          class="numbers-dialed"
+          className="numbers-dialed"
           style={{ fontSize: 40, color: "rgb(42, 196, 32)" }}
         >
           {number}

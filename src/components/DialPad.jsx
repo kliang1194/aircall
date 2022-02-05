@@ -35,7 +35,7 @@ const DialPad = () => {
               key={index}
             >
               <h1 style={{ fontSize: 20 }} className="dial-pad">
-                <strong>{digit}</strong>
+                <strong style={{ color: "black" }}>{digit}</strong>
               </h1>
               <h5 className="dial-pad" style={{ color: "grey" }}>
                 {letters}

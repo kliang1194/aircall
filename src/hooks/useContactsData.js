@@ -19,5 +19,5 @@ export function useContactsData() {
     getContactsData();
   }, []);
 
-  return { contacts };
+  return contacts;
 }

@@ -144,9 +144,7 @@ const Item = ({ call }) => {
             </div>
           </div>
         </div>
-        {isOpen && isId === call.id ? (
-          <CallDetails call={call} id={call.id} />
-        ) : null}
+        {isOpen && isId === call.id ? <CallDetails call={call} /> : null}
       </div>
     </div>
   );

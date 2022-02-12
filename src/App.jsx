@@ -13,7 +13,7 @@ import DialPad from "./components/DialPad.jsx";
 import { getCallsApi } from "./hooks/getCallsApi.js";
 
 const App = () => {
-  const { callData } = getCallsApi();
+  const [callData] = getCallsApi();
   const [screen, setScreen] = useState("Home");
 
   return (

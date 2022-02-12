@@ -2,7 +2,7 @@ import React from "react";
 import { useContactsData } from "../hooks/useContactsData.js";
 
 const Contacts = () => {
-  const { contacts } = useContactsData();
+  const contacts = useContactsData();
 
   return (
     <div className="content-container">

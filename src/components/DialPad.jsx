@@ -68,9 +68,6 @@ const DialPad = () => {
             className="dial-pad-icons"
             size={50}
             style={{ marginRight: 62 }}
-            onClick={() => {
-              setNumber(number.substring(0, number.length - 1));
-            }}
           />
 
           <RiDeleteBack2Fill

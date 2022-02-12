@@ -19,5 +19,5 @@ export function getCallsApi() {
     getCallData();
   }, [callData]);
 
-  return { callData };
+  return [callData];
 }
